@@ -1,0 +1,92 @@
+DSA BOOK
+
+#include<iostream>
+using namespace std;
+class book{
+  public:
+  string bookname;
+  int cost;
+  void accept(){
+      cout<<"enter book name:-";
+      cin>>bookname;
+      cout<<"enter book coast:-";
+      cin>>cost;
+  }
+  void display(){
+     
+     
+       cout<<"bookname:"<<bookname<<endl;
+        cout<<"cost:"<<cost<<endl;
+  }
+  void sortbook(int n,book b[]){
+      int temp;
+       string temp2;
+      for(int i=0;i<n;i++){
+          for(int j=0;j<n-1;j++){
+              if(b[j].cost>b[j+1].cost){
+                  temp=b[j].cost;
+                  b[j].cost=b[j+1].cost;
+                  b[j+1].cost=temp;
+                  
+                  temp2=b[j].bookname;
+                  b[j].bookname=b[j+1].bookname;
+                  b[j+1].bookname=temp2;
+              }
+          }
+      }
+  }
+  void greaterthan500(int n,book b[]){
+      int count=0;
+      for(int i=0;i<n;i++){
+          if(b[i].cost>500)
+          {
+              count++;
+          }
+      }
+          cout<<"book cost greter than 500 is:"<<count<<endl;
+      }
+      void lessthan500(int n,book b[],book m[]){
+          int t=0;
+          for(int i=0;i<n;i++){
+              if(b[i].cost<500){
+                  m[t]=b[i];
+                  
+              }
+              t++;
+          }
+          cout<<"'book less than 500 is";
+      }
+      
+  
+  
+};
+int main(){
+    book b[100];
+    book m[100];
+   int t;
+    int n;
+    int i;
+    int j;
+    cout<<"enter number of book:-";
+    cin>>n;
+    for(int i=0;i<n;i++){
+        b[i].accept();
+    }
+    for(int i=0;i<n;i++){
+        b[i].sortbook(n,b);
+    }
+    for(int i=0;i<n;i++){
+        b[i].display();
+    }
+    
+        b[i].greaterthan500(n,b);
+        b[i].lessthan500(n,b,m);
+        for(int i=0;i<n;i++){
+b[i].display();
+  }
+    
+    
+  return 0;  
+};
+
+                         
